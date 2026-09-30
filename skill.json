@@ -1,0 +1,51 @@
+{
+  "name": "genpark-enterprise-slide-deck-narrative-compiler-skill",
+  "version": "1.0.0",
+  "description": "Enterprise Presentation & Slide Deck Narrative Structure Compiler (inspired by Tencent WorkBuddy Goal-to-PPT Workflows). Transforms raw enterprise documents, meeting transcripts, and KPI metrics into structured executive slide decks with layout templates, card callouts, speaker notes, and timing budgets.",
+  "tools": [
+    {
+      "name": "compile_slide_deck_narrative",
+      "description": "Compile enterprise goal-to-presentation deliverables: generate executive narrative outlines, assign slide layout archetypes, format card callouts, and compute presentation timing budgets.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "compile_deck_structure",
+              "assign_slide_templates",
+              "estimate_presentation_timing",
+              "generate_speaker_notes"
+            ],
+            "description": "Slide deck compilation action."
+          },
+          "deck_title": {
+            "type": "string",
+            "description": "Title of the presentation deck."
+          },
+          "raw_document_text": {
+            "type": "string",
+            "description": "Raw source text, strategy document, or meeting transcript."
+          },
+          "target_audience": {
+            "type": "string",
+            "enum": [
+              "EXECUTIVE_BOARD",
+              "ALL_HANDS",
+              "TECHNICAL_DEEP_DIVE",
+              "CLIENT_PITCH"
+            ],
+            "description": "Target presentation audience."
+          },
+          "target_slide_count": {
+            "type": "integer",
+            "description": "Desired number of slides (typically 5 to 12)."
+          }
+        },
+        "required": [
+          "action"
+        ]
+      }
+    }
+  ]
+}
